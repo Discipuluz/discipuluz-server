@@ -1,4 +1,4 @@
-# DISCIPULUZ WEB
+# DISCIPULUZ INFRA
 
     Discipuluz infrastructure files
 
