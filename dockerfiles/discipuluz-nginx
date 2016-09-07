@@ -1,0 +1,15 @@
+#################################################
+# Dockerfile to build nginx on discipuluz server
+# Based on oficial nginx Dockerfile
+#################################################
+
+FROM nginx
+
+MAINTAINER "Rodrigo Seiji Piubeli Hirao"
+
+USER core
+
+COPY ../nginx/nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80 #prod
+EXPOSE 8080 #dev
