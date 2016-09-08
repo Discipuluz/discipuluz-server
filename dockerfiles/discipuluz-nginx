@@ -11,5 +11,5 @@ USER core
 
 COPY ../nginx/nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80 #prod
-EXPOSE 8080 #dev
+# exposing ports 80 for production and 8080 for development
+EXPOSE 80 8080 443
