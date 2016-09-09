@@ -6,13 +6,10 @@ FROM node:4
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-ENV VERSION 1.6.1
-ENV BOWER_VERSION 1.7.9
-
 # Install polymer and bower
 RUN npm install -g \
-    polymer-cli@${VERSION} \
-    bower@${BOWER_VERSION}
+    polymer-cli \
+    bower
 
 ENTRYPOINT ["/usr/bin/polymer"]
 
