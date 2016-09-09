@@ -10,12 +10,9 @@ ENV VERSION 1.6.1
 ENV BOWER_VERSION 1.7.9
 
 # Install polymer and bower
-RUN apk add --no-cache --virtual .build-deps git \
-  && npm install -g \
+RUN npm install -g \
     polymer-cli@${VERSION} \
-    bower@${BOWER_VERSION} \
-  && apk del .build-deps \
-  && rm -rf /var/cache/apk/*
+    bower@${BOWER_VERSION}
 
 ENTRYPOINT ["/usr/bin/polymer"]
 
