@@ -7,8 +7,6 @@ FROM nginx:alpine
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-RUN mkdir -p /usr/share/nginx/html/prod
-RUN mkdir -p /usr/share/nginx/html/dev
 RUN mkdir -p /usr/share/nginx/html/temp
 
 RUN mkdir -p /var/log/nginx/
@@ -33,10 +31,10 @@ RUN mv build/bundled /usr/share/nginx/html/prod
 RUN mv build/unbundled /usr/share/nginx/html/dev
 
 WORKDIR /usr/share/nginx/html/prod
-# RUN bower install --allow-root
+RUN bower install --allow-root
 
 WORKDIR /usr/share/nginx/html/dev
-# RUN bower install --allow-root
+RUN bower install --allow-root
 
 RUN rm -rf /usr/share/nginx/html/temp
 
