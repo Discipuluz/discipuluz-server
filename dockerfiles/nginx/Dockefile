@@ -5,7 +5,7 @@
 
 FROM nginx
 
-MAINTAINER Rodrigo Seiji Piubeli Hirao
+MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
 USER core
 
