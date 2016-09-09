@@ -7,8 +7,6 @@ FROM nginx
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-VOLUME ["/usr/share/nginx"]
-
 RUN mkdir -p /usr/share/nginx/log
 
 COPY nginx.conf /etc/nginx/nginx.conf
