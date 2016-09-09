@@ -1,0 +1,202 @@
+<html><head><link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
+
+<link rel="import" href="../discipuluz-components/discipuluz-card.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card-score.html">
+<link rel="import" href="../discipuluz-utils/html-escape.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-form-mentor.html">
+<link rel="import" href="../discipuluz-components/discipuluz-card.html">
+
+</head><body><dom-module id="discipuluz-upa">
+  <template>
+    <style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+
+			paper-tabs{
+				--paper-tabs-selection-bar-color: var(--primary-title-color);
+			}
+
+			paper-radio-button{
+				--paper-radio-button-checked-color: var(--primary-title-color);
+			}
+
+			a{
+				text-decoration: none;
+			}
+      .justified{
+        text-align: center;
+      }
+      .main-title{
+        font-weight: 100;
+        color: #777;
+        font-size: 2.5em;
+      }
+			.secondary-title{
+				font-weight: 100;
+				color: #777;
+				font-size: 1.6em;
+			}
+
+			img{
+				width: 340px;
+				height: 170px;
+				margin-top: 10px;
+			}
+
+			.welcome-text{
+				margin: 15px;
+			}
+			.intro{
+				margin-bottom: 20px;
+			}
+
+			.icon{
+				color: var(--primary-title-color);
+				font-size: 3rem;
+			}
+			iron-icon{
+				width: 100px;
+				height: 100px;
+				color: var(--primary-title-color);
+			}
+			iron-icon.flex{
+				width: 50px;
+				height: 50px;
+				color: white;
+			}
+
+			div.social{
+				margin: 10px;
+			}
+			div.fb{
+				border-radius: 10px;
+				background-color: #3b5998;
+				color: white;
+				margin-bottom: : 10px;
+			}
+
+			div.wp{
+				border-radius: 10px;
+				background-color: var(--primary-title-color);;
+				color: white;
+			}
+    </style>
+
+		<div class="layout vertical">
+			<div class="layout vertical intro">
+				<div class$="layout [[responsiveClass('vertical', 'horizontal')]] center">
+					<div class="layout flex-1"></div>
+					<div class="layout horizontal flex-3 image">
+						<img src="../../images/upa.png">
+					</div>
+					<div class="layout vertical flex-7 welcome-text">
+						<h3><html-escape text="[[localize('thanks-title')]]"></html-escape></h3>
+						<p><html-escape text="[[localize('thanks-text')]]"></html-escape></p>
+					</div>
+					<div class="layout flex-1"></div>
+				</div>
+				<div class="layout horizontal">
+					<div class="layout flex-1"></div>
+					<div class="layout vertical center flex-10 welcome-text">
+						<h2><html-escape text="[[localize('intro-title')]]"></html-escape></h2>
+						<p><html-escape text="[[localize('intro-text')]]"></html-escape></p>
+						<p><html-escape text="[[localize('how-text')]]"></html-escape></p>
+						<p><html-escape text="[[localize('what-text')]]"></html-escape></p>
+						<p style="font-size: 1.2em"><html-escape text="[[localize('cta-text')]]"></html-escape></p>
+					</div>
+					<div class="layout flex-1"></div>
+				</div>
+				</div>
+			</div>
+
+			<div class$="layout [[responsiveClass('vertical', 'horizontal')]] main-content">
+				<div class="layout horizontal flex-1"></div>
+				<div class="layout horizontal flex-4">
+					<discipuluz-form-mentor class="flex-3 contact-card" title="Requisite a Ajuda dos Universitários" back-title=".." url="http://localhost:8888/web/contact" button-text="[[localize('submit')]]" on-response="_formResponse">
+						<div class="form-front layout vertical">
+							<p>* Campos obrigatórios</p>
+							<h3>Vamos precisar conversar com você, pode nos passar seus contatos?</h3>
+							<div class="layout horizontal">
+								<paper-input required="" class="flex" label="Qual seu nome?*" name="name" error-message="Por favor, preencha este campo."></paper-input>
+							</div>
+							<div class="layout horizontal">
+								<paper-input class="flex" label="Coloque aqui o link do seu perfil no Facebook" name="facebook"></paper-input>
+							</div>
+							<div class="layout horizontal">
+								<gold-email-input required="" class="flex" auto-validate="" label="Qual seu email?*" regex="^[-a-z0-9~!$%^&amp;*_=+}{\'?]+(\.[-a-z0-9~!$%^&amp;*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$" error-message="Por favor, preencha este campo." name="email"></gold-email-input>
+							</div>
+							<div class="layout horizontal">
+								<paper-input class="flex" label="Qual seu celular?" name="celular"></paper-input>
+							</div>
+
+							<h3>Beleza, mas e aí? Qual curso você gostaria saber mais?</h3>
+							<div class="layout horizontal">
+								<paper-input required="" class="flex" label="Digite aqui o nome do curso*" name="curso" error-message="Por favor, preencha este campo."></paper-input>
+							</div>
+
+							<h3>Tá acabando! Só para finalizar... </h3>
+							<label id="info">Nos conheceu no UPA?</label>
+							<paper-radio-group aria-labelledby="info" class="info">
+								<paper-radio-button name="sim">Sim</paper-radio-button>
+								<paper-radio-button name="nao">Não</paper-radio-button>
+							</paper-radio-group>
+							<div class="layout horizontal">
+								<paper-textarea class="flex" label="Comentários" name="message"></paper-textarea>
+							</div>
+						</div>
+						<div class="form-back">
+							<p>
+								bla bla bla
+							</p>
+						</div>
+					</discipuluz-form-mentor>
+				</div>
+				<div class="layout horizontal flex-1"></div>
+				<div class="layout vertical flex-4">
+					<discipuluz-card class="flex" title="[[localize('goals-title')]]">
+						<div class="layout vertical center">
+							<iron-icon icon="loyalty"></iron-icon>
+							<html-escape text="[[localize('goals-text')]]"></html-escape>
+						</div>
+					</discipuluz-card>
+					<discipuluz-card class="flex" title="[[localize('social-title')]]">
+						<html-escape text="[[localize('social-text')]]"></html-escape>
+						<a href="https://www.facebook.com/discipuluzoficial" target="_blank">
+							<div class="layout horizontal center social fb">
+								<div><iron-icon class="flex" icon="fa-brand:facebook-square"></iron-icon></div>
+								<p>
+									Acompanhe nossa página no Facebook
+								</p>
+							</div>
+						</a>
+						<a href="http://www.somostodosaprendizes.com.br/blog/" target="_blank">
+							<div class="layout horizontal center social wp">
+								<div><iron-icon class="flex" icon="social:pages"></iron-icon></div>
+								<p>
+									Conheça nosso blog "Somos todos aprendizes"
+								</p>
+							</div>
+						</a>
+
+					</discipuluz-card>
+				</div>
+				<div class="layout horizontal flex-1"></div>
+
+			</div>
+		
+
+	</template>
+
+  <script>Polymer({is:"discipuluz-upa",behaviors:[Discipuluz.AppLocalizeBehavior,Discipuluz.AppResponsiveBehavior],properties:{file:{value:"upa"}}});</script>
+</dom-module>
+</body></html>
