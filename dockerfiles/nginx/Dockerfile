@@ -7,7 +7,7 @@ FROM nginx
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-USER core
+USER discipuluz+core
 
 COPY nginx.conf /etc/nginx/nginx.conf
 

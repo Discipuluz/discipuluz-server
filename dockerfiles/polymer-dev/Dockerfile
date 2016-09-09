@@ -6,7 +6,7 @@ FROM node:4
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-USER core
+USER discipuluz+core
 
 ENV VERSION 1.6.1
 ENV BOWER_VERSION 1.7.9

@@ -6,7 +6,7 @@ FROM python:2.7
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-USER core
+USER discipuluz+core
 
 RUN mkdir -p /usr/src/app/dev
 WORKDIR /usr/src/app/dev

@@ -7,4 +7,4 @@ FROM mongo
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-USER core
+USER discipuluz+core
