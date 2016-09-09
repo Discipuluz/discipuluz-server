@@ -23,7 +23,11 @@ WORKDIR /usr/share/nginx/html/temp
 RUN git clone https://github.com/Discipuluz/discipuluz-web .
 
 # Install polymer and bower
-RUN npm install -g bower
+RUN npm install -g \
+    polymer-cli \
+    bower
+
+RUN polymer build
 
 RUN mv build/bundled /usr/share/nginx/html/prod
 WORKDIR /usr/share/nginx/html/prod
