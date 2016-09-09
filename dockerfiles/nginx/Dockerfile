@@ -18,6 +18,10 @@ COPY nginx.conf /etc/nginx/nginx.conf
 WORKDIR /usr/share/nginx/html/temp
 RUN git clone https://github.com/Discipuluz/discipuluz-web .
 
+#Lovely git
+RUN apk update && apk upgrade && \
+apk add --no-cache bash git openssh
+
 # ENV VERSION=v0.10.46 CFLAGS="-D__USE_MISC" NPM_VERSION=2
 # ENV VERSION=v0.12.15 NPM_VERSION=2
 ENV VERSION=v4.5.0 NPM_VERSION=2
