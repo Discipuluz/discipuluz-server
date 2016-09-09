@@ -6,5 +6,3 @@
 FROM mongo
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
-
-USER discipuluz+core
