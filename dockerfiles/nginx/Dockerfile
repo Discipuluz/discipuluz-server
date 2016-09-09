@@ -17,7 +17,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 #Lovely git
 RUN apk update && apk upgrade && \
-apk add --no-cache git node
+apk add --no-cache git nodejs
 
 WORKDIR /usr/share/nginx/html/temp
 RUN git clone https://github.com/Discipuluz/discipuluz-web .
