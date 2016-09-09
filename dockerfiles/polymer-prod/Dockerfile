@@ -22,5 +22,8 @@ RUN apk add --no-cache --virtual .build-deps git \
 ENTRYPOINT ["/usr/bin/polymer"]
 
 RUN mkdir -p /usr/share/nginx/html/prod
+ONBUILD RUN git clone -b prod https://github.com/Discipuluz/discipuluz-web.git
+ONBUILD WORKDIR ./discipuluz-web 
 ONBUILD RUN polymer build
 ONBUILD RUN mv -r build/bundled /usr/share/nginx/html/prod
+ONBUILD RUN rm -rf ./
