@@ -30,12 +30,13 @@ RUN npm install -g \
 RUN polymer build
 
 RUN mv build/bundled /usr/share/nginx/html/prod
-WORKDIR /usr/share/nginx/html/prod
-#RUN bower install --allow-root
-
 RUN mv build/unbundled /usr/share/nginx/html/dev
+
+WORKDIR /usr/share/nginx/html/prod
+# RUN bower install --allow-root
+
 WORKDIR /usr/share/nginx/html/dev
-#RUN bower install --allow-root
+# RUN bower install --allow-root
 
 RUN rm -rf /usr/share/nginx/html/temp
 
