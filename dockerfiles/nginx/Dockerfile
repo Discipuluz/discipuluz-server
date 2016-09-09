@@ -7,6 +7,8 @@ FROM nginx
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
+RUN mkdir -p /usr/share/nginx/log
+
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # exposing ports 80 for production and 8080 for development
