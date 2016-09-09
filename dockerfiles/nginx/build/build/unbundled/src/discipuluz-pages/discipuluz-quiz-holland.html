@@ -1,0 +1,99 @@
+<html><head><link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+
+<link rel="import" href="../discipuluz-components/discipuluz-card-slider.html">
+<link rel="import" href="../discipuluz-utils/discipuluz-util-classes.html">
+
+</head><body><dom-module id="discipuluz-quiz-holland">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment discipuluz-flow">
+			.card-container{
+				padding: 1rem;
+				box-sizing: border-box;
+			}
+			.card-container.small{
+				width: 100%;
+			}
+			.card-container.large{
+				width: 50%;
+			}
+			paper-button > *{
+				margin: 0 .3rem;
+			}
+			paper-button{
+				background-color: var(--primary-title-color);
+				color: var(--primary-bg-color);
+			}
+		</style>
+
+		<form is="iron-form" method="post" action="[[url]]" on-iron-form-response="_formResponse" id="form">
+			<div class="layout vertical">
+				<div class="layout horizontal wrap">
+					<template is="dom-repeat" items="[[questions]]" as="question">
+						<div class$="card-container [[responsiveClass('small', 'large')]] sizing-border-box">
+							<discipuluz-card-slider number="[[_addOne(index)]]" title="[[question.question]]" name="question-[[index]]">
+							</discipuluz-card-slider>
+						</div>
+					</template>
+				</div>
+
+				<div class="layout horizontal center-center">
+					<paper-button class$="[[responsiveClass('flex')]]" raised="" on-tap="_submitForm"> 
+						 <span>[[localize('submit')]]</span>
+						 <iron-icon icon="send"></iron-icon>
+					</paper-button>
+				</div>
+			</div>
+		</form>
+	</template>
+
+
+	<script>
+	Polymer({
+
+		is: 'discipuluz-quiz-holland',
+
+		behaviors: [
+			Discipuluz.AppResponsiveBehavior,
+			Discipuluz.AppLocalizeBehavior
+		],
+
+		properties: {
+			questions: {
+				type: Object,
+				value: [
+					{
+						question: 'Em um lugar novo, ou frente a novas situações, você prefere:'
+					},
+					{
+						question: 'Na maioria das situações, você tende a ser uma pessoa:'
+					},
+					{
+						question: 'Pense que está no meio de um grande grupo de pessoas. Você...'
+					},
+					{
+						question: 'Nas suas decisões e avaliações sobre outras pessoas, pesa mais:'
+					}
+				]
+			},
+			file: {
+				value: 'quiz-holland'
+			}
+		},
+
+		_submitForm: function(){
+			this.$.form.submit()
+		},
+
+		_formResponse: function(e){
+			console.log(e)
+		},
+
+		_addOne(index){
+			return index + 1
+		}
+	})
+	</script>
+
+</dom-module>
+</body></html>

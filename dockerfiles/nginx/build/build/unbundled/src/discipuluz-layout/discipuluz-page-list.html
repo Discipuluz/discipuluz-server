@@ -1,0 +1,19 @@
+<html><head><link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+
+</head><body><dom-module id="discipuluz-page-list">
+	<template>
+		<style is="custom-style" include="iron-flex iron-flex-factors">
+		</style>
+
+		<app-route route="{{route}}" pattern="/:index" data="{{routeData}}" tail="{{subroute}}">
+		</app-route>
+
+		<iron-pages attr-for-selected="name" selected="[[page]]" class="flex">
+			<content></content>
+		</iron-pages>
+	</template>
+
+	<script>Polymer({is:"discipuluz-page-list",properties:{route:{type:Object,observer:"_changeRoute",notify:!0},index:{type:String,notify:!0},subroute:{type:Object,notify:!0},page:{type:String,notify:!0},pages:{type:Object,value:[]}},_changeRoute:function(){if(this.routeData.index){for(var t=0;t<this.pages.length;t++)if(this.routeData.index===this.pages[t])return this.set("page",this.routeData.index),void this.set("index",this.routeData.index);this.set("page","item"),this.set("index",this.routeData.index)}else this.set("page","list"),this.set("index","")}});</script>
+</dom-module>
+</body></html>
