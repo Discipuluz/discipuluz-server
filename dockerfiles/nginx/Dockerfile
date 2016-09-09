@@ -29,16 +29,13 @@ RUN npm install -g \
 
 RUN polymer build
 
-# Shit happens fast
-RUN echo '{ "allow_root": true }' > /root/.bowerrc
-
 RUN mv build/bundled /usr/share/nginx/html/prod
 WORKDIR /usr/share/nginx/html/prod
-RUN bower install
+RUN bower install --allow-root
 
 RUN mv build/unbundled /usr/share/nginx/html/dev
 WORKDIR /usr/share/nginx/html/dev
-RUN bower install
+RUN bower install --allow-root
 
 RUN rm -rf /usr/share/nginx/html/temp
 
