@@ -1,8 +1,0 @@
-<html><head></head><body><dom-module id="html-escape">
-	
-	<template>
-	</template>
-	
-	<script>Polymer({is:"html-escape",properties:{text:{type:String,observer:"escape"}},escape:function(){this.innerHTML=this.text,elements=this.querySelectorAll("*");for(var e=0;e<elements.length;e++)for(var s=0;s<this.classList.length;s++)elements[e].classList.add(this.classList[s])}});</script>
-</dom-module>
-</body></html>
