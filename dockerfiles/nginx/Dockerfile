@@ -18,7 +18,7 @@ RUN apk update && apk upgrade && \
 apk add --no-cache git nodejs
 
 WORKDIR /usr/share/nginx/html/temp
-RUN git clone https://github.com/Discipuluz/discipuluz-web .
+RUN git clone -b dev https://github.com/Discipuluz/discipuluz-web .
 
 # Install polymer and bower
 RUN npm install -g \
@@ -27,8 +27,8 @@ RUN npm install -g \
 
 RUN polymer build
 
-RUN mv build/bundled /usr/share/nginx/html/dev
 RUN mv build/unbundled /usr/share/nginx/html/prod
+RUN mv build/bundled /usr/share/nginx/html/dev
 
 WORKDIR /usr/share/nginx/html/prod
 RUN bower install --allow-root
