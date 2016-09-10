@@ -27,8 +27,8 @@ RUN npm install -g \
 
 RUN polymer build
 
-RUN mv build/unbundled /usr/share/nginx/html/prod
 RUN mv build/bundled /usr/share/nginx/html/dev
+RUN mv build/unbundled /usr/share/nginx/html/prod
 
 WORKDIR /usr/share/nginx/html/prod
 RUN bower install --allow-root
