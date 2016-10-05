@@ -13,30 +13,5 @@ RUN mkdir -p /var/log/nginx/
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-#Lovely git
-RUN apk update && apk upgrade && \
-apk add --no-cache git nodejs
-
-WORKDIR /usr/share/nginx/html/temp
-RUN git clone -b prod https://github.com/Discipuluz/discipuluz-web .
-
-# Install polymer and bower
-RUN npm install -g \
-    polymer-cli \
-    bower
-
-RUN polymer build
-
-RUN mv build/unbundled /usr/share/nginx/html/prod
-RUN mv build/bundled /usr/share/nginx/html/dev
-
-WORKDIR /usr/share/nginx/html/prod
-RUN bower install --allow-root
-
-WORKDIR /usr/share/nginx/html/dev
-RUN bower install --allow-root
-
-RUN rm -rf /usr/share/nginx/html/temp
-
-# exposing ports 80 for production and 8080 for development
-EXPOSE 80 8080 443
+# exposing ports 80 for server and 443 for SSL
+EXPOSE 80 443

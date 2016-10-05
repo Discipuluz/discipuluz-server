@@ -13,4 +13,5 @@ Container Engine - [Rkt](https://coreos.com/rkt/docs/latest/using-rkt-with-syste
 Web Server - [Nginx](https://www.nginx.com/resources/library/)
 
 ## ACCESS
-http://104.236.17.76/
+[http://104.236.17.76/](production)
+[http://45.55.237.48/](test)
