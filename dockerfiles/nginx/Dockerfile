@@ -7,8 +7,6 @@ FROM nginx:alpine
 
 MAINTAINER Rodrigo Seiji Piubeli Hirao <rodrigo.seiji.hirao@gmail.com>
 
-RUN mkdir -p /usr/share/nginx/html/temp
-
 RUN mkdir -p /var/log/nginx/
 
 COPY nginx.conf /etc/nginx/nginx.conf
